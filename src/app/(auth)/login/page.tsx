@@ -29,7 +29,7 @@ export default function Login() {
         const result = await signIn('credentials', {
             email: payload.email,
             password: payload.password,
-            callbackUrl: '/'
+            callbackUrl: '/teacher'
         })
 
         if(result?.error) {
