@@ -13,11 +13,17 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { LoginSchema, schema } from "./schema";
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
 
 export default function Login() {
     const router = useRouter()
+    const session = useSession()
+
+    if (session.data?.user) {
+        router.replace("/teacher")
+    }
 
     const form = useForm<LoginSchema>({
         resolver: zodResolver(schema),
