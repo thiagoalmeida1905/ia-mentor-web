@@ -12,7 +12,7 @@ export const schema = z.object({
         required_error: 'Insira uma senha para o usuário'
     }),
     role: z.nativeEnum( UserEnum, {
-        required_error: 'Insira o cardo do usuário'
+        required_error: 'Insira o cargo do usuário'
     })
 })
 
